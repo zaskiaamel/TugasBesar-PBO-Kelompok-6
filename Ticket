@@ -1,1 +1,103 @@
+public class Ticket {
 
+    private String ticketId;
+    private String ticketType;
+    private double price;
+    private int totalQuota;
+    private int availableQuota;
+    private boolean status;
+
+    public Ticket(String ticketId, String ticketType,
+                  double price, int totalQuota) {
+
+        this.ticketId = ticketId;
+        this.ticketType = ticketType;
+        this.price = price;
+        this.totalQuota = totalQuota;
+        this.availableQuota = totalQuota;
+        this.status = true;
+    }
+
+    // Getter
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public String getTicketType() {
+        return ticketType;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getAvailableQuota() {
+        return availableQuota;
+    }
+
+    // Setter
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setTicketType(String ticketType) {
+        this.ticketType = ticketType;
+    }
+
+    // Cek ketersediaan
+    public boolean isAvailable() {
+        return availableQuota > 0 && status;
+    }
+
+    // Booking tiket
+    public boolean bookTicket(int quantity) {
+
+        if(quantity <= 0) {
+            System.out.println("Jumlah tiket tidak valid!");
+            return false;
+        }
+
+        if(quantity > availableQuota) {
+            System.out.println("Stok tiket tidak cukup!");
+            return false;
+        }
+
+        availableQuota -= quantity;
+        System.out.println("Booking berhasil!");
+        return true;
+    }
+
+    // Cancel tiket
+    public void cancelTicket(int quantity) {
+
+        availableQuota += quantity;
+
+        if(availableQuota > totalQuota) {
+            availableQuota = totalQuota;
+        }
+
+        System.out.println("Booking dibatalkan.");
+    }
+
+    // Menampilkan detail tiket
+    public void displayTicket() {
+
+        System.out.println("===== DATA TICKET =====");
+        System.out.println("ID Ticket      : " + ticketId);
+        System.out.println("Jenis Ticket   : " + ticketType);
+        System.out.println("Harga          : Rp" + price);
+        System.out.println("Kuota Total    : " + totalQuota);
+        System.out.println("Sisa Kuota     : " + availableQuota);
+        System.out.println("Status         : " + (status ? "Aktif" : "Nonaktif"));
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "ticketId='" + ticketId + '\'' +
+                ", ticketType='" + ticketType + '\'' +
+                ", price=" + price +
+                ", availableQuota=" + availableQuota +
+                '}';
+    }
+}
