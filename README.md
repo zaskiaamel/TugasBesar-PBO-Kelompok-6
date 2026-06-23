@@ -95,7 +95,6 @@ Abstract class `User` digunakan sebagai dasar seluruh jenis pengguna dalam siste
 ### 🔌 Interface
 Interface `PaymentMethod` digunakan untuk mendukung berbagai metode pembayaran yang fleksibel.
 
----
 
 ## 🗄 Database Structure
 
@@ -114,47 +113,6 @@ Relasi database mendukung proses:
 - Pemesanan tiket
 - Pembayaran
 - Pembuatan tiket digital
-
----
-
-## 🚀 Cara Menjalankan Project
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/username/eventify.git
-```
-
-### 2. Buat Database
-
-```sql
-CREATE DATABASE eventify;
-USE eventify;
-```
-
-### 3. Import Database
-
-Import file SQL yang tersedia pada folder database.
-
-### 4. Konfigurasi Database
-
-Sesuaikan konfigurasi JDBC:
-
-```java
-String url = "jdbc:mysql://localhost:3306/eventify";
-String username = "root";
-String password = "password";
-```
-
-### 5. Jalankan Apache Tomcat
-
-Deploy project ke Apache Tomcat kemudian akses:
-
-```text
-http://localhost:8080/Eventify
-```
-
----
 
 ## 📂 Struktur Project
 
@@ -178,19 +136,6 @@ Eventify/
 │
 └── README.md
 ```
-
----
-
-## 🔮 Pengembangan Selanjutnya
-
-- Integrasi Payment Gateway (Midtrans/Xendit)
-- QR Code Ticket Verification
-- Email & WhatsApp Notification
-- JWT Authentication
-- Password Encryption (BCrypt)
-- Mobile App Version (Flutter)
-
----
 
 <div align="center">
 
